@@ -1,7 +1,7 @@
 # Users are added below
 resource "aws_iam_user" "tim" { 
    name = "tim" 
-   path = "/
+   path = "/"
 } 
 resource "aws_iam_user" "ben" { 
    name = "ben" 
@@ -12,15 +12,17 @@ resource "aws_iam_user" "lisa" {
    path = "/" 
 } 
 # adds groups
+
 resource "aws_iam_group" "developers" { 
     name = "developers" 
     path = "/"
-} 
-resource “aws_iam_group” “admin” { 
+}
+resource "aws_iam_group" "admin" { 
     name = "admin" 
     path = "/" 
 } 
 # Group Membership
+
 resource "aws_iam_group_membership" "developers_team" { 
   name = "developers-group-membership" 
   users = [ 
@@ -28,5 +30,5 @@ resource "aws_iam_group_membership" "developers_team" {
     "${aws_iam_user.tben.name}",
     "${aws_iam_user.lisa.name}",
   ] 
-  group = “${aws_iam_group.developers.name}” 
+  group = "${aws_iam_group.developers.name}"
  }
