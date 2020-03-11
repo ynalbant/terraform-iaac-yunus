@@ -33,3 +33,7 @@ output "Private Subnet3" {
   value       = "${aws_subnet.dev_private3.id}"
  
 }
+
+output "IGW" {
+  value       = "${aws_internet_gateway.dev.id}"
+}
