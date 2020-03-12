@@ -17,17 +17,17 @@ output "Subnet3" {
  
 }
 
-output "Private Subnet1" {
+output "Private_Subnet1" {
   value       = "${module.dev_private1.id}"
  
 }
 
-output "Private Subnet2" {
+output "Private_Subnet2" {
   value       = "${module.dev_private2.id}"
  
 }
 
-output "Private Subnet3" {
+output "Private_Subnet3" {
   value       = "${module.dev_private3.id}"
  
 }
