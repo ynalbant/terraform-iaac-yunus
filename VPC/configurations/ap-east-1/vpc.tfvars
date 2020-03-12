@@ -1,5 +1,5 @@
 #provide a region for VPC
-environment                     =   	"hong kong"
+environment                     =   	"hong-kong"
 region                          =   "ap-east-1"
 
 
