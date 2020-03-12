@@ -32,3 +32,6 @@ output "Private Subnet3" {
  
 }
 
+output "IGW" {
+  value       = "${module.dev.id}"
+}
