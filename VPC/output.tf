@@ -3,35 +3,29 @@ output "VPC_ID" {
 }
 
 output "Subnet1" {
-  value       = "${module.dev,subnet1.id}"
- 
+  value       = "${module.dev.Subnet1}"
 }
 
 output "Subnet2" {
-  value       = "${module.dev.subnet2.id}"
- 
+  value       = "${module.dev.Subnet2}"
 }
 
 output "Subnet3" {
-  value       = "${module.dev.subnet3.id}"
- 
+  value       = "${module.dev.Subnet3}"
 }
 
 output "Private_Subnet1" {
-  value       = "${module.dev.private_subnet1.id}"
- 
+  value       = "${module.dev.Private_Subnet1}"
 }
 
 output "Private_Subnet2" {
-  value       = "${module.dev.private_subnet2.id}"
- 
+  value       = "${module.dev.Private_Subnet2}"
 }
 
 output "Private_Subnet3" {
-  value       = "${module.dev.private_subnet3.id}"
- 
+  value       = "${module.dev.Private_Subnet3}"
 }
 
 output "IGW" {
-  value       = "${module.dev.IGW}"
-}
+    value = "${module.dev.IGW}"
+  }
