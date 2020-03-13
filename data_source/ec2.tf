@@ -23,9 +23,6 @@ data "aws_ami" "ubuntu" {
 
 
 
-
-
-
 output "UBUNTU_AMI_ID" {
   value       = "${data.aws_ami.ubuntu.id}"
 }
@@ -52,16 +49,21 @@ data "aws_ami" "centos" {
 }
 
 
-
-
-
 output "CENTOS_AMI_ID" {
   value       = "${data.aws_ami.centos.id}"
 }
 
+
+resource "aws_key_pair" "provisioner" {
+  key_name   = "provisioner-key"
+  public_key = "${file("~/.ssh/id_rsa.pub")}"
+}
+
+
 resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.micro"
+  key_name      = "${aws_key_pair.provisioner.key_name}"
 
   tags = {
     Name = "HelloWorld"
