@@ -66,14 +66,24 @@ resource "aws_instance" "web" {
   key_name      = "${aws_key_pair.provisioner.key_name}"
 
   provisioner "file" { 
-      connection {
-    type     = "ssh"
-    user     = "ubuntu"
-   private_key  = "${file("~/.ssh/id_rsa")}"
-    host     = "${self.public_ip}"
+  connection {
+      type     = "ssh"
+      user     = "ubuntu"
+      private_key  = "${file("~/.ssh/id_rsa")}"
+      host     = "${self.public_ip}"
          }
-  source      = "test"
-  destination = "/tmp/"
+         source      = "test"
+         destination = "/tmp/"
+    }
+
+    provisioner "remote-exec" {
+    connection {
+      type     = "ssh"
+      user     = "ubuntu"
+      private_key  = "${file("~/.ssh/id_rsa")}"
+      host     = "${self.public_ip}"
+         }
+        inline = "sudo apt-get install telnet -y"
     }
 
   tags = {
