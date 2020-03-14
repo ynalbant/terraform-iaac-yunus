@@ -1,3 +1,4 @@
+# Creates ASG with Lounch Configurations
 
   module "wordpress" {
   name = "wordpress"
@@ -15,7 +16,7 @@
  
 
   # Auto scaling group
-  asg_name                  = "wordpress-asg"
+  asg_name                  = "wordpress"
   vpc_zone_identifier       = ["${data.terraform_remote_state.dev.Subnet1}", 
                                "${data.terraform_remote_state.dev.Subnet2}", 
                                "${data.terraform_remote_state.dev.Subnet3}",
