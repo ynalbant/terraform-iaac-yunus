@@ -1,22 +1,9 @@
-data "aws_ami" "centos" {
-  most_recent = true
-  owners      = ["679593333241"]
 
-  filter {
-    name   = "state"
-    values = ["available"]
-  }
-
-  filter {
-    name   = "name"
-    values = ["CentOS Linux 7 x86_64 HVM EBS *"]
-  }
-}
 
 resource "aws_instance" "r1soft"         {
   depends_on                  = ["aws_key_pair.r1soft"]
   instance_type               = "${var.instance_type}"
-  ami                         = "${data.aws_ami.centos.id}"
+  ami                         = "ami-0fc61db8544a617ed"
   key_name                    = "${var.key_name}"
   associate_public_ip_address = "true"
   security_groups             = ["allow_ssh_and_r1soft"]
