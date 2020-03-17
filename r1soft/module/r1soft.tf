@@ -1,5 +1,12 @@
+data "aws_ami" "amazon" {
+  most_recent = true
+  owners      = ["137112412989"]
 
-
+  filter {
+    name   = "state"
+    values = ["available"]
+  }
+}
 resource "aws_instance" "r1soft"         {
   depends_on                  = ["aws_key_pair.r1soft"]
   instance_type               = "${var.instance_type}"
